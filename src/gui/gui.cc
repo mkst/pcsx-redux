@@ -332,8 +332,7 @@ end)(jit.status()))
         }
 
         setFullscreen(m_fullscreen);
-        const auto currentTheme =
-            emuSettings.get<Emulator::SettingGUITheme>().value;  // On boot: reload GUI theme
+        const auto currentTheme = emuSettings.get<Emulator::SettingGUITheme>().value;  // On boot: reload GUI theme
         applyTheme(currentTheme);
 
         if (emuSettings.get<Emulator::SettingMcd1>().empty()) {
@@ -1550,11 +1549,11 @@ bool PCSX::GUI::about() {
                 if (glDebugMessageCallback) {
                     changed |= ImGui::Checkbox(_("Enable OpenGL error reporting"),
                                                &g_emulator->settings.get<Emulator::SettingGLErrorReporting>().value);
-                    
-                    ShowHelpMarker(_(
-                            "OpenGL error reporting is necessary for properly reporting OpenGL problems. "
-                            "However it requires OpenGL 4.3+ and might have performance repercussions on "
-                            "some PCs. (Requires reboot)"));
+
+                    ShowHelpMarker(
+                        _("OpenGL error reporting is necessary for properly reporting OpenGL problems. "
+                          "However it requires OpenGL 4.3+ and might have performance repercussions on "
+                          "some PCs. (Requires reboot)"));
                 }
                 ImGui::Text(_("Core profile: %s"), m_hasCoreProfile ? "yes" : "no");
                 someString(_("Vendor"), GL_VENDOR);
