@@ -937,7 +937,8 @@ bool PsyqLnkFile::Section::generateElfSection(PsyqLnkFile* psyq, ELFIO::elfio& w
     if (getFullSize() == 0) return true;
     fmt::print("    :: Generating section {}\n", name);
     static const std::map<std::string, ELFIO::Elf_Xword> flagsMap = {
-        {".text", SHF_ALLOC | SHF_EXECINSTR}, {".rdata", SHF_ALLOC},
+        {".text", SHF_ALLOC | SHF_EXECINSTR},
+        {".rdata", SHF_ALLOC},                {".rodata", SHF_ALLOC},
         {".data", SHF_ALLOC | SHF_WRITE},     {".sdata", SHF_ALLOC | SHF_WRITE | SHF_MIPS_GPREL},
         {".bss", SHF_ALLOC | SHF_WRITE},      {".sbss", SHF_ALLOC | SHF_WRITE | SHF_MIPS_GPREL},
     };
